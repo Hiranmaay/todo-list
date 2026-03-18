@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Bento | Hiranmaay</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="app">
+        <aside>
+            <h2 class="logo">Neural Tasks</h2>
+            <nav>
+                <div class="nav-item active"><i class="ph ph-grid-four"></i> All Tasks</div>
+                <div class="nav-item"><i class="ph ph-user"></i> Personal</div>
+                <div class="nav-item"><i class="ph ph-briefcase"></i> Work</div>
+            </nav>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Objectives</h1>
+                <span id="counter" class="task-counter">0 Tasks</span>
+            </header>
+
+            <div class="task-input-container">
+                <input type="text" id="todo-input" placeholder="Initialize new objective..." autocomplete="off">
+                <button id="add-btn">ADD TASK</button>
+            </div>
+
+            <div id="task-list"></div>
+        </main>
+    </div>
+
+    <footer class="main-footer">with ❤️ by Hiranmaay</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

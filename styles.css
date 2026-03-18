@@ -1,0 +1,177 @@
+/* (Your CSS exactly as provided) */
+
+:root {
+    --app-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1a1a1b;
+    --text-dim: #65676b;
+    --accent: #3b82f6;
+    --danger: #ef4444;
+    --border: rgba(0, 0, 0, 0.08);
+    --glass: blur(12px);
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: var(--font-main); 
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1509023464722-18d996393ca8?q=80&w=2340&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#app {
+    background: var(--app-bg);
+    backdrop-filter: var(--glass);
+    -webkit-backdrop-filter: var(--glass);
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    margin-top: 40px;
+}
+
+/* Sidebar */
+aside {
+    padding: 30px;
+    border-right: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.logo { margin-bottom: 24px; font-size: 1.4rem; font-weight: 700; }
+
+.nav-item {
+    list-style: none;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: var(--text-dim);
+    transition: 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: white;
+    color: var(--text-main);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Main Content Area */
+main { 
+    padding: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 24px; 
+}
+
+header { display: flex; justify-content: space-between; align-items: center; }
+.task-counter { color: var(--text-dim); font-weight: 600; }
+
+.task-input-container {
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+input {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+}
+
+button#add-btn {
+    background: var(--text-main);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+button#add-btn:hover { background: #333; transform: scale(1.02); }
+
+/* Task Cards */
+.task-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.task-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+.task-left { display: flex; align-items: center; gap: 15px; }
+
+.circle-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.completed .circle-check { background: var(--accent); border-color: var(--accent); }
+.completed .task-text { text-decoration: line-through; color: var(--text-dim); }
+
+.task-info { display: flex; flex-direction: column; }
+.task-text { font-weight: 600; font-size: 1rem; }
+.task-tag { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+
+.actions i {
+    margin-left: 15px;
+    cursor: pointer;
+    color: var(--text-dim);
+    transition: 0.2s;
+    font-size: 1.1rem;
+}
+
+.actions i:hover { color: var(--danger); }
+
+/* Footer Styling */
+.main-footer {
+    margin-top: auto;
+    padding: 40px 0;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Responsive Logic */
+@media (max-width: 768px) {
+    #app { grid-template-columns: 1fr; margin-top: 10px; }
+    aside { border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+    main { padding: 25px; }
+    header h1 { font-size: 1.5rem; }
+}
